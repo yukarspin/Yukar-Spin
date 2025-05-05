@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yukar Spin</title>
 
-    <!-- Google Fonts: Comic Neue (similar to Comic Sans) -->
+    <!-- Comic Neue font -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
 
     <style>
@@ -93,6 +93,16 @@
                 border: 2px solid white;
             }
 
+        #mobileNotice {
+            display: none;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+        }
+
         img {
             width: 100vw;
             height: 100vh;
@@ -110,16 +120,11 @@
             }
 
             #volumeControl {
-                flex-direction: column;
-                top: auto;
-                bottom: 20px;
+                display: none; /* Hide volume slider on mobile */
             }
 
-            #volumeSlider {
-                width: 50vw;
-            }
-
-            #volumeValue {
+            #mobileNotice {
+                display: block; /* Show mobile notice */
                 font-size: 4vw;
             }
         }
@@ -132,12 +137,17 @@
         <source src="funky.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
+
     <div id="timer">You have wasted: 0 minutes and 0 seconds staring at Yukar</div>
 
     <div id="volumeControl">
         <label for="volumeSlider">Volume:</label>
         <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" disabled />
         <span id="volumeValue">100%</span>
+    </div>
+
+    <div id="mobileNotice">
+        Use your device's volume buttons to control sound.
     </div>
 
     <script>
